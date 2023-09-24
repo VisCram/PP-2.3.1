@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new User</title>
+
+</head>
+<body>
+<style>
+    table {
+        width: 50%; /* Ширина таблицы */
+        border: 1px solid #333; /* Граница вокруг таблицы */
+        border-spacing: 1px 1px; /* Расстояние между ячеек */
+    }
+
+    td {
+        background: #cbc2c2; /* Цвет фона */
+        border: 1px solid #333; /* Граница вокруг ячеек */
+        padding: 3px; /* Ширина полей в ячейках */
+    }
+</style>
+<h1>Add </h1>
+<br>
+<form action="#" th:method="post" th:action="@{/saveNewUser}" th:object="${user}">
+    <table border="3" style="background-color: #8c8888;" cellspacing="6">
+        <tr>
+            <td>Name</td>
+            <td><input th:type="text" th:field="*{name}" required class="data"></td>
+        </tr>
+        <tr>
+            <td>Last name</td>
+            <td><input th:type="text" required th:field="*{lastName}" class="data"></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input th:type="text" required th:field="*{email}" class="data"></td>
+        </tr>
+        <tr style="text-align: right;">
+            <td colspan="2"><input type="submit" value="Save User" id="saveButton"/>&nbsp;&nbsp;&nbsp;<a th:href="@{/}">Cancel</a>
+            </td>
+        </tr>
+    </table>
+    <br>
+</form>
+</div>
+</body>
+</html>
