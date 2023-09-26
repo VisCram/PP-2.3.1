@@ -16,15 +16,15 @@ public class UserController {
     }
 
     @GetMapping
-    public String findAll(Model model) {
+    public String showAllUsers(Model model) {
         model.addAttribute("users", userService.findAll());
         return "users";
     }
 
-    @GetMapping("/userCreate")
-    public String createNewUser(Model model) {
+    @GetMapping("/addNewUser")
+    public String addNewUser(Model model) {
         model.addAttribute("user", new User());
-        return "userCreate";
+        return "addNewUser";
     }
 
     @PostMapping("/saveNewUser")
@@ -46,8 +46,8 @@ public class UserController {
         return "updateUser";
     }
 
-    @PostMapping("/saveUpdateUser")
-    public String saveUpdateUser(@RequestParam("id") Long id, @ModelAttribute("user") User user) {
+    @PostMapping("/updateExistingUser")
+    public String updateExistingUser(@RequestParam("id") Long id, @ModelAttribute("user") User user) {
         user.setId(id);
         userService.updateUser(user);
         return "redirect:/";

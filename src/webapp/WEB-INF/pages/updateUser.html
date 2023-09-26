@@ -21,7 +21,7 @@
 </style>
 <h1>Edit </h1>
 <br>
-<form th:method="post" th:action="@{/saveUpdateUser?id={userId}(userId=${update.getId()})}" th:object="${update}">
+<form th:method="post" th:action="@{/updateExistingUser?id={userId}(userId=${update.getId()})}" th:object="${update}">
     <input type="hidden" name="userId" th:value="${update.getId()}"/>
     <table border="3" style="background-color: #8c8888;" cellspacing="6">
         <tr>
