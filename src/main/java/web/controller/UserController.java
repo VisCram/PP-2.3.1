@@ -21,10 +21,10 @@ public class UserController {
         return "users";
     }
 
-    @GetMapping("/addNewUser") ///addNewUser
-    public String showFormForAddUser(Model model) {  //addNewUser
+    @GetMapping("/addNewUser")
+    public String showFormForAddUser(Model model) {
         model.addAttribute("user", new User());
-        return "addNewUser"; //addNewUser
+        return "addNewUser";
     }
 
     @PostMapping("/saveNewUser")
@@ -40,10 +40,10 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/updateUser")  //update
-    public String showFormForUpdateUser(@RequestParam("id") Long id, Model model) { //update
+    @GetMapping("/updateUser")
+    public String showFormForUpdateUser(@RequestParam("id") Long id, Model model) {
         model.addAttribute("update", userService.getUserById(id));
-        return "updateUser";  //update
+        return "updateUser";
     }
 
     @PostMapping("/updateExistingUser")
