@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit user</title>
+
+</head>
+<body>
+<style>
+    table {
+        width: 50%; /* Ширина таблицы */
+        border: 1px solid #333; /* Граница вокруг таблицы */
+        border-spacing: 1px 1px; /* Расстояние между ячеек */
+    }
+
+    td {
+        background: #cbc2c2; /* Цвет фона */
+        border: 1px solid #333; /* Граница вокруг ячеек */
+        padding: 3px; /* Ширина полей в ячейках */
+    }
+</style>
+<h1>Edit </h1>
+<br>
+<form th:method="post" th:action="@{/updateExistingUser?id={userId}(userId=${update.getId()})}" th:object="${update}">
+    <input type="hidden" name="userId" th:value="${update.getId()}"/>
+    <table border="3" style="background-color: #8c8888;" cellspacing="6">
+        <tr>
+            <td>Id</td>
+            <td><input th:type="text" th:field="*{id}" required th:value="${update.getId()}" class="data"></td>
+        </tr>
+        </tr>
+        <td>Name</td>
+        <td><input th:type="text" th:field="*{name}" required th:value="${update.getName()}" class="data"></td>
+        </tr>
+        <tr>
+            <td>Last name</td>
+            <td><input th:type="text" th:field="*{lastName}" required th:value="${update.getLastName()}" class="data">
+            </td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input th:type="text" th:field="*{email}" required th:value="${update.getEmail()}" class="data">
+        </tr>
+        <tr style="text-align: right;">
+            <td colspan="2"><input type="submit" value="Save changes" id="saveButton"/>&nbsp;&nbsp;&nbsp;<a
+                    th:href="@{/}">Cancel</a></td>
+        </tr>
+    </table>
+    <br>
+</form>
+</div>
+</body>
+</html>

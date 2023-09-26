@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+
+</head>
+<body>
+<style>
+    table {
+        width: 100%; /* Ширина таблицы */
+        border: 1px solid #333; /* Граница вокруг таблицы */
+        border-spacing: 1px 1px; /* Расстояние между ячеек */
+    }
+
+    td {
+        background: #cbc2c2; /* Цвет фона */
+        border: 1px solid #333; /* Граница вокруг ячеек */
+        padding: 3px; /* Ширина полей в ячейках */
+    }
+</style>
+
+<h1 style="text-align: center;">Table for all users</h1>
+
+<br>
+<table border="3" style="background-color: #8c8888;" cellspacing="6">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Last name</th>
+        <th>Email</th>
+        <th>Actions</th>
+
+    </tr>
+    <th:block th:each="user : ${users}">
+        <td th:text="${user.getId()}"></td>
+        <td th:text="${user.getName()}"></td>
+        <td th:text="${user.getLastName()}"></td>
+        <td th:text="${user.getEmail()}"></td>
+        <td><a th:text="Edit" th:href="@{updateUser?id={userId}(userId=${user.getId()})}"></a>
+            <a th:text="Delete" th:href="@{deleteUser?id={userId}(userId=${user.getId()})}"></a>
+        </td>
+        </tr>
+    </th:block>
+</table>
+<br><br>
+<a th:href="addNewUser"><input type="button" id="addB" value="Add "></a>
+<a th:href="@{/deleteUser(id=${user.getId()})}">Delete</a>
+</div>
+</body>
+</html>
+
